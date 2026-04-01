@@ -9,4 +9,6 @@ Route::get('/vuelosapi', function () {
     return response()->json(['mensaje' => 'hola vuelos']);
 });
 
-Route::apiResource('aerolineas', AerolineaController::class);  
+Route::apiResource('aerolineas', AerolineaController::class);
+
+Route::get('aerolineas/{id}/vuelos', [AerolineaController::class, 'vuelos']);

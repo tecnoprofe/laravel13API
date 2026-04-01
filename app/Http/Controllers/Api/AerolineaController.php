@@ -13,16 +13,30 @@ class AerolineaController extends Controller
      * Display a listing of the resource.
      */
     public function index()
-    {
-        
+    {               
+       
+
+
         $aerolineas = Aerolinea::all();
 
         // Ya no devolvemos view('...'). Devolvemos JSON:
         return response()->json([
-            'status' => 'success',
+            'status' => 'exito',
             'data' => $aerolineas
         ], 200);         
     
+    }
+
+
+    public function vuelos($id)
+    {
+        
+        $aerolinea = Aerolinea::find($id);         
+                
+        return response()->json([
+            'status' => 'success',
+            'data' => $aerolinea->vuelos
+        ], 200);            
     }
 
     /**
